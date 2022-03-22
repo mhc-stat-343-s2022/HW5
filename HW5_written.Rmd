@@ -1,0 +1,103 @@
+---
+title: "Homework 5: Written Part"
+subtitle: "STAT 343: Mathematical Statistics"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+   - \usepackage{booktabs}
+geometry: margin=1.5cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+\def\simiid{\stackrel{{\mbox{\text{\tiny i.i.d.}}}}{\sim}}
+
+# Details
+
+### How to Write Up
+
+The written part of this assignment can be either typeset using latex or hand written.
+
+### Grading
+
+5% of your grade on this assignment is for turning in something legible and organized.
+
+An additional 15% of your grade is for completion.  A quick pass will be made to ensure that you've made a reasonable attempt at all problems.
+
+In grading these problems, an emphasis will be placed on full explanations of your thought process.  You don't need to write more than a few sentences for any given problem, but you should write complete sentences!  Understanding and explaining the reasons behind what you are doing is at least as important as solving the problems correctly.
+
+
+### Collaboration
+
+You are allowed to work with others on this assignment, but you must complete and submit your own write up.  You should not copy large blocks of code or written text from another student.
+
+### Sources
+
+You may refer to our text, Wikipedia, and other online sources.  All sources you refer to must be cited in the space I have provided at the end of this problem set.
+
+# Problem I: Exponential Distribution
+
+Suppose $X_1, \ldots, X_n \sim \text{Exp}(\lambda)$, where the $X_i$ are independent.
+
+Here are some facts about the exponential distribution (please use this parameterization of the exponential distribution for this problem):
+
+If $X \sim Exp(\lambda)$ then the density function is given by $f(x | \lambda) = \lambda e^{-\lambda x}$
+
+The mean and variance are given by $E(X) = \frac{1}{\lambda}$ and $Var(X) = \frac{1}{\lambda^2}$.
+
+Based on a sample $x_1, \ldots, x_n$, the log-likelihood function is:
+\begin{align*}
+L(\lambda | x_1, \ldots, x_n) = n \log(\lambda) - \lambda \sum_{i = 1}^n x_i
+\end{align*}
+
+The first derivative of the log-likelihood function is:
+\begin{align*}
+\frac{d}{d \lambda} L(\lambda | x_1, \ldots, x_n) = \frac{n}{\lambda} - \sum_{i = 1}^n x_i
+\end{align*}
+
+The second derivative of the log-likelihood function is:
+\begin{align*}
+\frac{d^2}{d \lambda^2} L(\lambda | x_1, \ldots, x_n) = - \frac{n}{\lambda^2}
+\end{align*}
+
+The maximum likelihood estimator can be shown to be: $\hat{\lambda}_{MLE} = 1 / \bar{X}$.
+
+### Find a normal approximation to the sampling distribution of the maximum likelihood estimator.  This will depend on the unknown parameter $\lambda$.
+
+\newpage
+
+# Problem II. Geometric Distribution
+
+Suppose that $X$ follows a geometric distribution,
+
+$$P(X=k)=p(1-p)^{k-1}$$
+and assume an i.i.d. sample of size $n$.
+
+**(a) Find the MLE of $p$.**
+
+**(b) Find the asymptotic variance of the MLE.**
+
+**(c) Find the approximate large sample distribution for the MLE.**
+
+**(d) What theorems/laws justify your answer in (c)?**
+
+\newpage
+
+# Problem III. Unbiased Estimator and the Cramer-Rao Lower Bound
+
+Consider $X_1,...,X_n\overset{i.i.d.}{\sim} Bernoulli(\theta)$. 
+
+Consider $\bar{X}$ as an estimator of $\theta$ (i.e. $T(X_1,..,X_n)=\frac{1}{n}\sum_{i=1}^nX_i=\bar{X}$).
+
+**(a) Show that $\bar{X}$ is an unbiased estimator of $\theta$.**
+
+
+**(b) Show that $\bar{X}$ attains the CRLB.**
+
+
+**(c) What does your answer in (b) mean in terms of variance?**
+
